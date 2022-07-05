@@ -21,7 +21,7 @@ chmod +x dm-aria.py
 
 ## Usage
 ### Key binding
-- First, you'll probably want to assign a key binding to the script (Qtile example):
+- First, you'll probably want to assign a key binding to the script (*Qtile* example):
 ```
 keys = [
     KeyChord([mod], 'space', [
@@ -35,11 +35,11 @@ keys = [
 - Upon running the script, enter a search query
 - Type which option you would like to download (you can also use arrow keys or `<C-n>` & `<C-p>`)
 - Press `<Esc>` at any time to cancel
-- After making a selection, note that `~/.cache/dm-aria/magnet_uris.txt` is now populated
+- After making a selection, note that `~/.cache/dm-aria/magnet_uris.txt` becomes populated
 - Repeat the above steps until you have stored all the magnet uris you want to download from
 
-### Configuring aria2
-- aria2 looks for a config in `~/.config/aria2/aria2.conf`
+### Configuring *aria2*
+- *aria2* looks for a config in `~/.config/aria2/aria2.conf`
 - Here is a minimal example config:
 ```
 dir=${HOME}/downloads
@@ -47,8 +47,9 @@ input-file=${HOME}/.cache/dm-aria/magnet_uris.txt
 save-session=${HOME}/.cache/dm-aria/magnet_uris.txt
 ```
 
-### More dmenu fun
-- Optionally, make a BASH script which will start/stop aria2 from dmenu
+### More *dmenu* fun
+- Optionally, make a BASH script which will start/stop *aria2* from *dmenu*
+- This should also be assigned a key binding
 - Minimal example:
 ```
 #!/bin/bash
@@ -64,15 +65,14 @@ case $choice in
   'aria2 go') aria2c --enable-rpc &&  notify-send "⬇️  Downloading with Aria2" ;;
   'aria2 kill') killall aria2c && notify-send "☠️  Killied Aria2" ;;
 esac
-
 ```
 
 ### Downloading
-- With or without dmenu, begin downloading with:
+- With or without *dmenu*, begin downloading with:
 ```
 $ aria2c --enable-rpc
 ```
-- Adjust how aria2 functions and check download progress with:
+- Adjust how *aria2* functions and check download progress with:
 ```
 $ aria2p
 ```
@@ -81,6 +81,6 @@ $ aria2p
 ### Wrapping things up
 - If desired, kill *aria2* with the *dmenu* script above, or simply:
 ```
-killall aria2c
+$ killall aria2c
 ```
 - Note that `~/.cache/dm-aria/magnet_uris.txt` is now empty
